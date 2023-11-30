@@ -1,14 +1,7 @@
----
-layout: default
----
-
 Text can be **bold**, _italic_, or ~~strikethrough~~.
 
 [Link to another page](./another-page.html).
 
-There should be whitespace between paragraphs.
-
-There should be whitespace between paragraphs. We recommend including a README, or a file with information about your project.
 
 # Programación funcional en Python
 ## ¿Que es?
@@ -542,7 +535,7 @@ ublic class HilosSimples {
 ```
 >Otro ejemplo de hilos
 
-```js
+```python
 public class MainClass {
 
     public static void main(String[] args) {
