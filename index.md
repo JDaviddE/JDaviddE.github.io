@@ -11,8 +11,19 @@ There should be whitespace between paragraphs.
 There should be whitespace between paragraphs. We recommend including a README, or a file with information about your project.
 
 # Programación funcional en Python
+## ¿Que es?
+La programación funcional (PF) es un paradigma de programación al igual que la programación orientada a objetos (POO). La PF se basa en cálculo lambda y concretamente en composición de funciones puras para modelar las soluciones de software.
+La programación funcional es un paradigma declarativo. Nos enfocaremos en "qué" estamos haciendo y no en "cómo" se está haciendo que sería el enfoque imperativo. Esto quiere decir que nosotros expresaremos nuestra lógica sin describir controles de flujo; no usaremos ciclos o condicionales.
 
-This is a normal paragraph following a header. GitHub is a code hosting platform for version control and collaboration. It lets you and others work together on projects from anywhere.
+### Funciones de primera clase
+Todo lo que se puede hacer con “datos” se puede hacer con las funciones mismas.
+Tratar funciones como objetos permite la composición y abstracción de código de manera eficaz.
+```js
+def cuadrado(x):
+    return x ** 2
+funcion = cuadrado
+print(funcion(5))  
+
 
 ## Header 2
 
