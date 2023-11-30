@@ -82,7 +82,7 @@ print(listaEdadAnios)
 ```
 * Reduce: Aplica una función a una secuencia de dos elementos, luego al resultado y al siguiente elemento, devuelve un solo valor.
   
-```ruby
+```python
 from functools import reduce
 
 # Generación de la lista de enteros de prueba desde 2 hasta 100, 
@@ -118,7 +118,7 @@ print(f"Producto con reduce (lambda): {productoTotalReduce}")
 
 Y aqui otro ejemplo de reduce pero con concatenación
 
-```ruby
+```python
 # Una lista de cadenas, para usar otra función de "reducción" (concatenación)
 listaCadenas = ["Muchos", "años", "después", ",", "frente", "al", "pelotón", "de", "fusilamiento"]
 # Reducción con concatenación
