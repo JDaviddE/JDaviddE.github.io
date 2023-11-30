@@ -203,8 +203,89 @@ procesar_producto(articulo)
 procesar_producto(libro)
 procesar_producto(software)
 ```
+## Patrones de Diseño
+Los patrones de diseño son soluciones generales y reutilizables para problemas comunes que surgen al diseñar software. Estos patrones ofrecen un enfoque probado y estructurado para resolver ciertos tipos de problemas
+### Patrones Creacionales
+Singleton: Garantiza que una clase tenga solo una instancia y proporciona un punto global de acceso a ella.
+Beneficios del Singleton
+1- evitar acceso concurrente a recurso compartido
+2- tener un punto de acceso global a un recurso
+Siglenton Clasico
+```python
+class ClassicSingleton:
 
+    _instance_ = None
 
+    def __init__(this):
+        raise RuntimeError("invocar la función create_instance para crear objeto")
+    
+    #métodos de instancia
+    def enqueueDocument(this, fileName, format):
+        pass
+
+    def dispatchDocument(this, fileName):
+        pass
+
+    def deleteDocument(this, fileName):
+        pass
+    
+    #un "classmethod es un método estático"
+    @classmethod
+    def createInstance(this):
+        if this._instance_ is None:
+            #lo hace solo una vez, cuando no se ha instanciado ningún objeto
+            this._instance_ = this.__new__(this) 
+            #__new__ lo usa internamente __init__ para crear una nueva instancia de clase
+        
+        return this._instance_
+    
+######### fin de implementación del singleton
+
+#tratamos de crear con el método init:
+#printerPool1 = ClassicSingleton()
+#printerPool2 = ClassicSingleton()
+
+#Ejemplo de uso del singleton clásico:
+
+printerPool1 = ClassicSingleton.createInstance() #lo llamo como método estático, no
+                                                 #método de objeto
+printerPool2 = ClassicSingleton.createInstance()
+
+print(printerPool1)
+print(printerPool2)
+
+print(printerPool1 == printerPool2)
+```
+Naive Siglenton
+```python
+#esta implementación "naive" reemplaza el método constructor por defecto por un
+#método propio de instanciación
+class naive_singleton():
+    _instance_ = None
+    #se va a lanzar error cuando se llame, para obligar a llamar al método create_instance
+    def __init__(self):
+        raise RuntimeError("use create_instance method instead")
+    #Se usa este método en vez del inicializador para garantizar que se cree una sola instancia
+    #classmethod garantiza que el método sea estático
+    #cls se usa aquí como el self
+    @classmethod 
+    def create_instance(cls):
+        #si no existe la instancia, la crea
+        if cls._instance_  is None:
+            cls._instance_ = cls.__new__(cls)
+        #retorna la instancia
+        return cls._instance_
+
+#ambos objetos SON la misma instancia de la clase
+printer_pool1 = naive_singleton.create_instance()
+printer_pool2 = naive_singleton.create_instance()
+
+print(printer_pool1)
+print(printer_pool2)
+
+#Debe mostrar si printer_pool1 y printer_pool2 corresponden a la misma instancia de clase (en este caso, es VERDADERO):
+print(f"Son la misma instancia?: {printer_pool1 is printer_pool2}")
+```
 ### Header 3
 
 ```js
