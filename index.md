@@ -43,7 +43,7 @@ Las funciones lambda son funciones anónimas y simples, convenientes para operac
 
 ### Funciones de alto orden
 son aquellas funciones que pueden recibir otras funciones como parámetro y/o devolver funciones como resultado.
->Permite construir operaciones complejas a partir de funciones más simples.
+*  Permite construir operaciones complejas a partir de funciones más simples.
 1. Map: Aplica una función a cada elemento de un iterable ej: una lista y devuelve un nuevo iterable con los resultado.
 ```js
 def convertirAAnios(x):
