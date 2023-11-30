@@ -38,9 +38,9 @@ La idea básica es dividir el problema en partes más pequeñas y aplicar la mis
 ### Funciones lambda
 Las funciones lambda son funciones anónimas y simples, convenientes para operaciones rápidas sin necesidad de definición formal.
 >Son más breves y se pueden definir en una sola línea de código
->Útiles para operaciones simples y rápidas sin la necesidad de una definición formal. 
->Se utilizan comúnmente como argumentos en funciones como map, filter, reduce
-
+Útiles para operaciones simples y rápidas sin la necesidad de una definición formal. 
+Se utilizan comúnmente como argumentos en funciones como map, filter, reduce
+>
 ### Funciones de alto orden
 son aquellas funciones que pueden recibir otras funciones como parámetro y/o devolver funciones como resultado.
 *  Permite construir operaciones complejas a partir de funciones más simples.
