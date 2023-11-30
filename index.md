@@ -206,7 +206,8 @@ procesar_producto(software)
 ## Patrones de Diseño
 Los patrones de diseño son soluciones generales y reutilizables para problemas comunes que surgen al diseñar software. Estos patrones ofrecen un enfoque probado y estructurado para resolver ciertos tipos de problemas
 ### Patrones Creacionales
-Singleton: Garantiza que una clase tenga solo una instancia y proporciona un punto global de acceso a ella.
+#### Singleton
+Garantiza que una clase tenga solo una instancia y proporciona un punto global de acceso a ella.
 Beneficios del Singleton
 1- evitar acceso concurrente a recurso compartido
 2- tener un punto de acceso global a un recurso
@@ -286,7 +287,8 @@ print(printer_pool2)
 #Debe mostrar si printer_pool1 y printer_pool2 corresponden a la misma instancia de clase (en este caso, es VERDADERO):
 print(f"Son la misma instancia?: {printer_pool1 is printer_pool2}")
 ```
-Factory Method:  Define una interfaz para crear un objeto, pero deja que las subclases alteren el tipo de objetos que se crearán.
+#### Factory Method
+Define una interfaz para crear un objeto, pero deja que las subclases alteren el tipo de objetos que se crearán.
 ```python
 
 class TranslateEnglish():
