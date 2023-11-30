@@ -1,7 +1,5 @@
-Text can be **bold**, _italic_, or ~~strikethrough~~.
-
-[Link to another page](./another-page.html).
-
+Soy Jeison David Hurtado Estacio estudiante de Ingenieria de Sistemas en la universidad santiago de Cali
+Y esto es un poco de lo que he visto en lenguajes de programación este semestre.
 
 # Programación funcional en Python
 ## ¿Que es?
