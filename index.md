@@ -24,7 +24,7 @@ def cuadrado(x):
 funcion = cuadrado
 print(funcion(5))  
 ```
-###Recursividad
+### Recursividad
 Sirve para resolver problemas dividiéndolos en subproblemas más pequeños y manejables.
 >Una función puede realizar un llamado a sí misma durante su ejecución.
 ```js
@@ -35,13 +35,13 @@ def suma_naturales(n):
         return n + suma_naturales(n - 1)
 ```
 La idea básica es dividir el problema en partes más pequeñas y aplicar la misma operación de suma a esas partes más pequeñas hasta llegar al resultado.
-###Funciones lambda
+### Funciones lambda
 Las funciones lambda son funciones anónimas y simples, convenientes para operaciones rápidas sin necesidad de definición formal.
 >Son más breves y se pueden definir en una sola línea de código
 >Útiles para operaciones simples y rápidas sin la necesidad de una definición formal. 
 >Se utilizan comúnmente como argumentos en funciones como map, filter, reduce
 
-###Funciones de alto orden
+### Funciones de alto orden
 son aquellas funciones que pueden recibir otras funciones como parámetro y/o devolver funciones como resultado.
 >Permite construir operaciones complejas a partir de funciones más simples.
 1.Map: Aplica una función a cada elemento de un iterable ej: una lista y devuelve un nuevo iterable con los resultado.
