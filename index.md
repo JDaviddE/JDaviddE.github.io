@@ -28,7 +28,7 @@ print(funcion(5))
 ### Recursividad
 Sirve para resolver problemas dividiéndolos en subproblemas más pequeños y manejables.
 Una función puede realizar un llamado a sí misma durante su ejecución.
-```js
+```python
 def suma_naturales(n):
     if n == 0:
         return 0
@@ -49,7 +49,7 @@ Permite construir operaciones complejas a partir de funciones más simples.
 
 * Map: Aplica una función a cada elemento de un iterable ej: una lista y devuelve un nuevo iterable con los resultado.
    
-```js
+```python
 def convertirAAnios(x):
     return {
         x["nombre"].lower(),
@@ -67,7 +67,7 @@ print(listaEdadAnios)
 ```
 * Filter:Filtra los elementos de un iterable según una función que retorna valores booleanos.
   
-```js
+```python
 def filtrarVegetarianos(x):
     x["Vegetariano"] = True
 
@@ -329,7 +329,7 @@ Estos patrones se centran en cómo se componen las clases y objetos para formar 
 El Adapter permite que interfaces incompatibles trabajen juntas.
 > Ejemplo Adapter
 
-```js
+```python
 # Definición de la interfaz XML
 class XMLInterface:
     def get_data(self):
