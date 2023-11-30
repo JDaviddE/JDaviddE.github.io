@@ -47,7 +47,7 @@ Se utilizan comúnmente como argumentos en funciones como map, filter, reduce.
 Son aquellas funciones que pueden recibir otras funciones como parámetro y/o devolver funciones como resultado.
 Permite construir operaciones complejas a partir de funciones más simples.
 
-1. Map: Aplica una función a cada elemento de un iterable ej: una lista y devuelve un nuevo iterable con los resultado.
+* Map: Aplica una función a cada elemento de un iterable ej: una lista y devuelve un nuevo iterable con los resultado.
    
 ```js
 def convertirAAnios(x):
@@ -65,7 +65,8 @@ listaEstudiantes = [
 listaEdadAnios = list(map(convertirAAnios,listaEstudiantes))
 print(listaEdadAnios)
 ```
-2. Filter:Filtra los elementos de un iterable según una función que retorna valores booleanos.
+* Filter:Filtra los elementos de un iterable según una función que retorna valores booleanos.
+  
 ```js
 def filtrarVegetarianos(x):
     x["Vegetariano"] = True
@@ -79,7 +80,8 @@ listaVegetarianos = list(filter(lambda x:x["Vegetariano"]==True,listaEstudiantes
 listaEdadAnios = list(map(convertirAAnios,listaVegetarianos))
 print(listaEdadAnios)
 ```
-3. Reduce: Aplica una función a una secuencia de dos elementos, luego al resultado y al siguiente elemento, devuelve un solo valor.
+* Reduce: Aplica una función a una secuencia de dos elementos, luego al resultado y al siguiente elemento, devuelve un solo valor.
+  
 ```js
 from functools import reduce
 
