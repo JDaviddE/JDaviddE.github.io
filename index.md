@@ -206,6 +206,7 @@ procesar_producto(software)
 ## Patrones de Diseño
 Los patrones de diseño son soluciones generales y reutilizables para problemas comunes que surgen al diseñar software. Estos patrones ofrecen un enfoque probado y estructurado para resolver ciertos tipos de problemas
 ### Patrones Creacionales
+Estos patrones se centran en cómo se crean las instancias de las clases, proporcionando flexibilidad en la creación de objetos.
 #### Singleton
 Garantiza que una clase tenga solo una instancia y proporciona un punto global de acceso a ella.
 Beneficios del Singleton
@@ -321,6 +322,164 @@ if __name__ == "__main__":
     my_en_translator = my_factory.return_translator("English")
     my_fr_translator = my_factory.return_translator("French")
     my_gr_translator = my_factory.return_translator("German")
+```
+### Patrones Estructurales
+Estos patrones se centran en cómo se componen las clases y objetos para formar estructuras más grandes.
+#### Adapter
+El Adapter permite que interfaces incompatibles trabajen juntas.
+> Ejemplo Adapter
+
+```js
+# Definición de la interfaz XML
+class XMLInterface:
+    def get_data(self):
+        pass
+
+    def set_data(self, data):
+        pass
+
+# Clase concreta que implementa la interfaz XML
+class Source(XMLInterface):
+    def get_data(self):
+        return "<XML>data</XML>"
+
+    def set_data(self, data):
+        # Implementación del método set_data para la fuente XML
+        print(f"Estableciendo datos XML: {data}")
+
+# Interfaz destino para texto
+class TxtInterface:
+    def get_data(self):
+        pass
+
+    def set_data(self, data):
+        pass
+
+# Adaptador que convierte la interfaz XML a la interfaz de texto
+class Adapter(TxtInterface):
+    _source = None
+
+    def __init__(self, source):
+        self._source = source
+
+    def get_data(self):
+        return "datos de texto plano"
+
+    def set_data(self, data):
+        # Aquí puedes implementar la lógica de conversión si es necesario
+        self._source.set_data(data)
+
+# Cliente que utiliza la interfaz de texto
+class ClienteTxt:
+    _source_type = None
+
+    def __init__(self, source_type):
+        self._source_type = source_type
+
+    def obtener_datos_cliente(self):
+        if self._source_type.get_data() == "datos de texto plano":
+            print("Datos correctos")
+        else:
+            print("Datos incorrectos")
+
+# Uso del código
+fuente_xml = Source()
+adaptador = Adapter(fuente_xml)
+mi_cliente = ClienteTxt(adaptador)
+
+mi_cliente.obtener_datos_cliente()
+```
+### Patrones de Comportamiento
+Estos patrones se centran en cómo se comunican y colaboran las clases y objetos.
+#### Observer
+Define una dependencia uno a muchos entre objetos, de modo que cuando un objeto cambia su estado, todos sus dependientes son notificados y actualizados automáticamente
+```python
+#Clase Publisher que se encarga de actualizar o notificar a los 
+#subscriptores
+class Publisher:
+    #Inicializar lista de observadores
+    def __init__(this):
+        this._observers = []
+
+    def addSubscriber(this, newSubscriber):
+        this._observers.append(newSubscriber)
+
+    def removeSubscriber(this, subscriber):
+        this._observers.remove(subscriber)
+
+    def notifySubscribers(this,message):
+        #enviar message a todos los subscribers en la lista:
+        for subscriber in this._observers :
+            subscriber.update(message)
+
+class Subscriber:
+
+    def Update(this, message):
+        pass
+
+class SubscriberType1(Subscriber):
+
+    def Update(this, message):
+        #return super().Update(message)
+        print(f"Subscriber 1 recibió mensaje {message}")
+
+class SubscriberType2(Subscriber):
+
+    def Update(this, message):
+        print(f"")
+
+#Método principal:
+if __name__ == "__main__":
+
+    #crear publisher:
+    publisher1 = Publisher()
+
+    #crear subscriptores u "observers"
+    observer1 = SubscriberType1()
+    observer2 = SubscriberType2()
+
+    #agregar subscriptores:
+    publisher1.addSubscriber(observer1)
+    publisher1.addSubscriber(observer2)
+
+    #notificar subscriptores:
+    publisher1.notifySubscribers("checking my subscribers...")
+```
+#### Strategy
+Strategy es un patrón de diseño de comportamiento que te permite definir una familia de algoritmos, colocar cada uno de ellos en una clase separada y hacer sus objetos intercambiables.
+```python
+#clase que define una estrategia en general
+class Strategy:
+    def execute():
+        pass
+
+#estrategias concretas:
+class ConcreteStrategyA(Strategy):
+    def execute(self):
+        print ("Ejecutando estrategia concreta A")
+
+class ConcreteStrategyB(Strategy):
+    def execute(self):
+        print("Ejecutando estrategia concreta B")
+
+#la clase Context es la que le permite al cliente ejecutar la estrategia correspondiente:
+class Context:
+    def __init__(self,strategy:Strategy):
+        self.strategy = strategy
+
+    def execute_strategy(self):
+        self.strategy.execute()
+
+#ejemplo de uso del patrón strategy (general):
+#usando la estrategia A
+strategyA = ConcreteStrategyA()
+contexto_str1 = Context(strategyA)
+result_str1 = contexto_str1.execute_strategy()
+
+#usando la estrategia B
+strategyB = ConcreteStrategyB()
+contexto_str2 = Context(strategyB)
+result_str2 = contexto_str2.execute_strategy()
 ```
 ### Header 3
 
