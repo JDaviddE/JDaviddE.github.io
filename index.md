@@ -481,104 +481,124 @@ strategyB = ConcreteStrategyB()
 contexto_str2 = Context(strategyB)
 result_str2 = contexto_str2.execute_strategy()
 ```
-### Header 3
+# Programación Multihilo en Java
+## Que es?
+La programación multihilo, es una técnica en la que un programa se descompone en unidades más pequeñas de ejecución llamadas hilos. Un hilo es la unidad básica de procesamiento de la CPU y representa una secuencia de instrucciones que pueden ejecutarse de forma independiente, aunque comparten el mismo espacio de memoria y recursos del sistema.
 
+### Conceptos
+#### Hilo
+Un hilo es una unidad más pequeña dentro de un proceso que ejecuta una secuencia de instrucciones de manera independiente. Los hilos comparten el mismo espacio de memoria y recursos del proceso padre.
+
+#### Multitarea
+La multitarea se refiere a la ejecución simultánea de múltiples tareas. En el contexto de la programación con hilos, la multitarea se logra mediante la ejecución simultánea de varios hilos dentro de un proceso.
+
+#### Concurrencia 
+La concurrencia es la ejecución aparentemente simultánea de múltiples tareas, pero no necesariamente al mismo tiempo exacto.
 ```js
-// Javascript code with syntax highlighting.
-var fun = function lang(l) {
-  dateformat.i18n = require('./lang/' + l)
-  return true;
+ublic class HilosSimples {	
+	
+	static void hiloMensaje(String mensaje)
+	{
+		String nombreHilo = Thread.currentThread().getName();
+		System.out.println("Hilo:"+nombreHilo+",Mensaje:"+mensaje);
+	}		
+	
+	//clase estática para el segundo hilo del programa:
+	private static class CicloMensajes implements Runnable
+	{
+		@Override
+		public void run() {
+			//cola de mensajes:
+			String messages[] = {
+					"Este",
+					"es",
+					"el",
+					"curso",
+					"de",
+					"lenguajes",
+					"de",
+					"programación"
+			};
+			
+			for(String mensaje: messages)
+			{
+				try {
+					Thread.sleep(2000);
+					hiloMensaje(mensaje);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					hiloMensaje("No he terminado!");
+				}					
+			}			
+		}		
+	}	
+	//hilo principal: método main:
+	public static void main(String args[])
+	{
+		
+	}
+}
 }
 ```
+>Otro ejemplo de hilos
 
-```ruby
-# Ruby code with syntax highlighting
-GitHubPages::Dependencies.gems.each do |gem, version|
-  s.add_dependency(gem, "= #{version}")
-end
-```
+```js
+public class MainClass {
 
-#### Header 4
+    public static void main(String[] args) {
+        Account myAccount = new Account(250000);
 
-*   This is an unordered list following a header.
-*   This is an unordered list following a header.
-*   This is an unordered list following a header.
+        // 1. Crear 8 hilos para realizar retiros concurrentes sobre la cuenta:
+        Thread[] hilosRetiro = new Thread[8];
 
-##### Header 5
+        for (int i = 0; i < hilosRetiro.length; i++) {
+            hilosRetiro[i] = new Thread(() -> myAccount.withdraw(100000));
+            hilosRetiro[i].start();
+        }
 
-1.  This is an ordered list following a header.
-2.  This is an ordered list following a header.
-3.  This is an ordered list following a header.
+        // 2. Unir los hilos a este hilo principal (main)
+        // e imprimir el id de cada hilo:
+        try {
+            for (Thread t : hilosRetiro) {
+                t.join();
+                System.out.println("Hilo con id: " + t.getId());
+            }
 
-###### Header 6
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
-| head1        | head two          | three |
-|:-------------|:------------------|:------|
-| ok           | good swedish fish | nice  |
-| out of stock | good and plenty   | nice  |
-| ok           | good `oreos`      | hmm   |
-| ok           | good `zoute` drop | yumm  |
+        // De aquí en adelante, se espera que todos los hilos de retiro terminen
+        System.out.println("Balance final: " + myAccount.getBalance());
+    }
+}
 
-### There's a horizontal rule below this.
+class Account {
+    private int balance;
 
-* * *
+    public Account(int initialBalance) {
+        this.balance = initialBalance;
+    }
 
-### Here is an unordered list:
+    public synchronized void withdraw(int amount) {
+        if (amount > balance) {
+            System.out.println("No hay fondos suficientes para el retiro.");
+        } else {
+            balance -= amount;
+            System.out.println("Retiro exitoso. Saldo restante: " + balance);
+        }
+    }
 
-*   Item foo
-*   Item bar
-*   Item baz
-*   Item zip
+    public synchronized void deposit(int amount) {
+        balance += amount;
+        System.out.println("Depósito exitoso. Saldo actual: " + balance);
+    }
 
-### And an ordered list:
-
-1.  Item one
-1.  Item two
-1.  Item three
-1.  Item four
-
-### And a nested list:
-
-- level 1 item
-  - level 2 item
-  - level 2 item
-    - level 3 item
-    - level 3 item
-- level 1 item
-  - level 2 item
-  - level 2 item
-  - level 2 item
-- level 1 item
-  - level 2 item
-  - level 2 item
-- level 1 item
-
-### Small image
-
-![Octocat](https://github.githubassets.com/images/icons/emoji/octocat.png)
-
-### Large image
-
-![Branching](https://guides.github.com/activities/hello-world/branching.png)
-
-
-### Definition lists can be used with HTML syntax.
-
-<dl>
-<dt>Name</dt>
-<dd>Godzilla</dd>
-<dt>Born</dt>
-<dd>1952</dd>
-<dt>Birthplace</dt>
-<dd>Japan</dd>
-<dt>Color</dt>
-<dd>Green</dd>
-</dl>
+    public int getBalance() {
+        return balance;
+    }
+}
 
 ```
-Long, single-line code blocks should not wrap. They should horizontally scroll if they are too long. This line should be long enough to demonstrate this.
-```
 
-```
-The final element.
-```
+
