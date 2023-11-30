@@ -17,13 +17,51 @@ La programación funcional es un paradigma declarativo. Nos enfocaremos en "qué
 
 ### Funciones de primera clase
 Todo lo que se puede hacer con “datos” se puede hacer con las funciones mismas.
-Tratar funciones como objetos permite la composición y abstracción de código de manera eficaz.
+>Tratar funciones como objetos permite la composición y abstracción de código de manera eficaz.
 ```js
 def cuadrado(x):
     return x ** 2
 funcion = cuadrado
 print(funcion(5))  
 ```
+###Recursividad
+Sirve para resolver problemas dividiéndolos en subproblemas más pequeños y manejables.
+>Una función puede realizar un llamado a sí misma durante su ejecución.
+```js
+def suma_naturales(n):
+    if n == 0:
+        return 0
+    else:
+        return n + suma_naturales(n - 1)
+```
+La idea básica es dividir el problema en partes más pequeñas y aplicar la misma operación de suma a esas partes más pequeñas hasta llegar al resultado.
+###Funciones lambda
+Las funciones lambda son funciones anónimas y simples, convenientes para operaciones rápidas sin necesidad de definición formal.
+>Son más breves y se pueden definir en una sola línea de código
+>Útiles para operaciones simples y rápidas sin la necesidad de una definición formal. 
+>Se utilizan comúnmente como argumentos en funciones como map, filter, reduce
+
+###Funciones de alto orden
+son aquellas funciones que pueden recibir otras funciones como parámetro y/o devolver funciones como resultado.
+>Permite construir operaciones complejas a partir de funciones más simples.
+1.Map: Aplica una función a cada elemento de un iterable ej: una lista y devuelve un nuevo iterable con los resultado.
+```js
+def convertirAAnios(x):
+    return {
+        x["nombre"].lower(),
+        x["Edad"]/12,
+        x["Vegetariano"]
+    }
+listaEstudiantes = [ 
+    {"nombre":"Diego","Edad":552,"Vegetariano":False},
+    {"nombre":"Diana","Edad":480,"Vegetariano":False},
+    {"nombre":"Camila","Edad":312,"Vegetariano":True}
+]
+
+listaEdadAnios = list(map(convertirAAnios,listaEstudiantes))
+print(listaEdadAnios)
+```
+
 
 ## Header 2
 
