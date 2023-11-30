@@ -18,7 +18,7 @@ La programación funcional es un paradigma declarativo. Nos enfocaremos en "qué
 ### Funciones de primera clase
 Todo lo que se puede hacer con “datos” se puede hacer con las funciones mismas.
 >Tratar funciones como objetos permite la composición y abstracción de código de manera eficaz.
->
+
 ```js
 def cuadrado(x):
     return x ** 2
