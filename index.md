@@ -125,11 +125,18 @@ listaCadenas = ["Muchos", "años", "después", ",", "frente", "al", "pelotón", 
 inicioCienAniosSOledad = reduce(lambda x, y: x + " " + y, listaCadenas)
 print(inicioCienAniosSOledad)
 ```
-## Header 2
 
-> This is a blockquote following a header.
->
-> When something is important enough, you do it even if the odds are not in your favor.
+* * *
+
+# Programación Orientada a objetos en Python
+La programación orientada a objetos (POO) es un paradigma de programación que se basa en el concepto de "objetos", los cuales pueden contener datos en forma de campos (también conocidos como atributos) y código, en forma de procedimientos (también conocidos como métodos)
+
+## Conceptos de OOP
+1- Abstracción, es la capacidad de definir objetos que representan conceptos abstractos o entidades del mundo real y los comportamientos asociados con ellos.
+
+2- Encapsulamiento, consiste en ocultar los detalles internos de un objeto y exponer solo lo que es necesario.
+
+
 
 ### Header 3
 
