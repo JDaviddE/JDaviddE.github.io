@@ -23,7 +23,7 @@ def cuadrado(x):
     return x ** 2
 funcion = cuadrado
 print(funcion(5))  
-
+```
 
 ## Header 2
 
