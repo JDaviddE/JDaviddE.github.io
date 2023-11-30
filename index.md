@@ -135,7 +135,74 @@ La programación orientada a objetos (POO) es un paradigma de programación que 
 1- Abstracción, es la capacidad de definir objetos que representan conceptos abstractos o entidades del mundo real y los comportamientos asociados con ellos.
 
 2- Encapsulamiento, consiste en ocultar los detalles internos de un objeto y exponer solo lo que es necesario.
+Modificadores de acceso
+Private: solo son accesibles desde dentro de la propia clase. No pueden ser accedidos directamente desde fuera de la clase.
+Public: son accesibles desde cualquier parte del programa. Pueden ser accedidos directamente desde fuera de la clase.
 
+3- Herencia: La herencia permite que una clase herede atributos y métodos de otra clase. La clase que hereda se llama subclase, y la clase de la que hereda se llama superclase.
+
+4-Polimorfismo: El polimorfismo permite que diferentes clases proporcionen una interfaz común para ser utilizada de manera similar. Esto se puede lograr a través de la herencia y la implementación de métodos con el mismo nombre en diferentes clases.
+
+```python
+class ProductoInvestigacion:
+
+    def __init__(self, pTitulo, pAutores):
+        # Abstracción: La clase abstracta ProductoInvestigacion encapsula los atributos comunes
+        self.titulo = pTitulo
+        self.__autores = pAutores  # Encapsulación: __autores es un atributo privado
+
+    def eliminarAutor(self, pAutor):
+        # Abstracción: Eliminar un autor es una operación pública
+        self.__eliminarAutor(pAutor)  # Encapsulación: Invocamos el método privado
+
+    def __eliminarAutor(self, pAutor):
+        # Encapsulación: Este método es privado y no debería ser accesible desde fuera
+        # Lógica para eliminar un autor (implementación privada)
+        pass
+
+
+class ArticuloRevista(ProductoInvestigacion):
+
+    def __init__(self, pTitulo, pAutores, pIssn, pVol, pNum, pAnio):
+        super().__init__(pTitulo, pAutores)
+        # Herencia: ArticuloRevista hereda de ProductoInvestigacion
+        # Abstracción: La clase ArticuloRevista hereda y especializa atributos
+        self.issn = pIssn
+        self.vol = pVol
+        self.num = pNum
+
+
+class Libro(ProductoInvestigacion):
+
+    def __init__(self, pTitulo, pAutores):
+        super().__init__(pTitulo, pAutores)
+        # Herencia: Libro hereda de ProductoInvestigacion
+        # Abstracción: La clase Libro hereda y no añade atributos adicionales
+
+
+class RegistroSoftware(ProductoInvestigacion):
+
+    def __init__(self, pTitulo, pAutores):
+        super().__init__(pTitulo, pAutores)
+        # Herencia: RegistroSoftware hereda de ProductoInvestigacion
+        # Abstracción: La clase RegistroSoftware hereda y no añade atributos adicionales
+
+
+# Polimorfismo (potencial):
+def procesar_producto(producto):
+    # Aquí, producto puede ser un objeto de cualquier clase derivada de ProductoInvestigacion
+    print(f"Título: {producto.titulo}")
+
+# Crear instancias de las clases derivadas
+articulo = ArticuloRevista("Artículo de Revista", ["Autor1", "Autor2"], "1234-5678", 10, 2, 2023)
+libro = Libro("Libro de Investigación", ["Autor3", "Autor4"])
+software = RegistroSoftware("Software de Investigación", ["Autor5", "Autor6"])
+
+# Llamar a la función con objetos de diferentes clases
+procesar_producto(articulo)
+procesar_producto(libro)
+procesar_producto(software)
+```
 
 
 ### Header 3
