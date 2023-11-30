@@ -78,7 +78,50 @@ listaVegetarianos = list(filter(lambda x:x["Vegetariano"]==True,listaEstudiantes
 listaEdadAnios = list(map(convertirAAnios,listaVegetarianos))
 print(listaEdadAnios)
 ```
+3. Reduce: Aplica una función a una secuencia de dos elementos, luego al resultado y al siguiente elemento, devuelve un solo valor.
+```js
+from functools import reduce
 
+# Generación de la lista de enteros de prueba desde 2 hasta 100, 
+# con incrementos de 2
+listaNumerosPares = list(range(2, 101, 2))
+print(listaNumerosPares)
+
+# Cálculo de una sumatoria usando un iterador:
+suma_iterador = 0
+for i in listaNumerosPares:
+    suma_iterador += i
+
+print(suma_iterador)
+
+# Serie sumatoria, usando la función reduce con función predefinida
+def MiSuma(x, y):
+    return x + y
+
+# Reduce usando la función suma predefinida
+sumaTotalReduce1 = reduce(MiSuma, listaNumerosPares)
+
+# Reduce usando una función lambda para la suma
+sumaTotalReduce2 = reduce(lambda x, y: x + y, listaNumerosPares)
+
+# Otra función lambda de reducción (división)
+productoTotalReduce = reduce(lambda x, y: x / y, listaNumerosPares)
+
+
+print(f"Suma con reduce (MiSuma): {sumaTotalReduce1}")
+print(f"Suma con reduce (lambda): {sumaTotalReduce2}")
+print(f"Producto con reduce (lambda): {productoTotalReduce}")
+```
+
+Y aqui otro ejemplo de reduce pero con concatenación
+
+```js
+# Una lista de cadenas, para usar otra función de "reducción" (concatenación)
+listaCadenas = ["Muchos", "años", "después", ",", "frente", "al", "pelotón", "de", "fusilamiento"]
+# Reducción con concatenación
+inicioCienAniosSOledad = reduce(lambda x, y: x + " " + y, listaCadenas)
+print(inicioCienAniosSOledad)
+```
 ## Header 2
 
 > This is a blockquote following a header.
