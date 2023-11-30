@@ -18,6 +18,7 @@ La programación funcional es un paradigma declarativo. Nos enfocaremos en "qué
 ### Funciones de primera clase
 Todo lo que se puede hacer con “datos” se puede hacer con las funciones mismas.
 >Tratar funciones como objetos permite la composición y abstracción de código de manera eficaz.
+>
 ```js
 def cuadrado(x):
     return x ** 2
@@ -37,7 +38,7 @@ def suma_naturales(n):
 La idea básica es dividir el problema en partes más pequeñas y aplicar la misma operación de suma a esas partes más pequeñas hasta llegar al resultado.
 ### Funciones lambda
 Las funciones lambda son funciones anónimas y simples, convenientes para operaciones rápidas sin necesidad de definición formal.
->Son más breves y se pueden definir en una sola línea de código.
+Son más breves y se pueden definir en una sola línea de código.
 Útiles para operaciones simples y rápidas sin la necesidad de una definición formal. 
 Se utilizan comúnmente como argumentos en funciones como map, filter, reduce.
 
