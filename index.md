@@ -482,7 +482,7 @@ contexto_str2 = Context(strategyB)
 result_str2 = contexto_str2.execute_strategy()
 ```
 # Programación Multihilo en Java
-## Que es?
+
 La programación multihilo, es una técnica en la que un programa se descompone en unidades más pequeñas de ejecución llamadas hilos. Un hilo es la unidad básica de procesamiento de la CPU y representa una secuencia de instrucciones que pueden ejecutarse de forma independiente, aunque comparten el mismo espacio de memoria y recursos del sistema.
 
 ### Conceptos
