@@ -37,6 +37,7 @@ def suma_naturales(n):
 ```
 La idea básica es dividir el problema en partes más pequeñas y aplicar la misma operación de suma a esas partes más pequeñas hasta llegar al resultado.
 ### Funciones lambda
+
 Las funciones lambda son funciones anónimas y simples, convenientes para operaciones rápidas sin necesidad de definición formal.
 Son más breves y se pueden definir en una sola línea de código.
 Útiles para operaciones simples y rápidas sin la necesidad de una definición formal. 
@@ -44,8 +45,9 @@ Se utilizan comúnmente como argumentos en funciones como map, filter, reduce.
 
 ### Funciones de alto orden
 Son aquellas funciones que pueden recibir otras funciones como parámetro y/o devolver funciones como resultado.
-Permite construir operaciones complejas a partir de funciones más simples.
-Map: Aplica una función a cada elemento de un iterable ej: una lista y devuelve un nuevo iterable con los resultado.
+>Permite construir operaciones complejas a partir de funciones más simples.
+
+1.Map: Aplica una función a cada elemento de un iterable ej: una lista y devuelve un nuevo iterable con los resultado.
 ```js
 def convertirAAnios(x):
     return {
@@ -62,7 +64,20 @@ listaEstudiantes = [
 listaEdadAnios = list(map(convertirAAnios,listaEstudiantes))
 print(listaEdadAnios)
 ```
+2.Filter:Filtra los elementos de un iterable según una función que retorna valores booleanos.
+```js
+def filtrarVegetarianos(x):
+    x["Vegetariano"] = True
 
+listaEstudiantes = [ 
+    {"nombre":"Diego","Edad":552,"Vegetariano":False},
+    {"nombre":"Diana","Edad":480,"Vegetariano":False},
+    {"nombre":"Camila","Edad":312,"Vegetariano":True}
+]
+listaVegetarianos = list(filter(lambda x:x["Vegetariano"]==True,listaEstudiantes))
+listaEdadAnios = list(map(convertirAAnios,listaVegetarianos))
+print(listaEdadAnios)
+```
 
 ## Header 2
 
